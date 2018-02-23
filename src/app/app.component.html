@@ -1,0 +1,185 @@
+<div class="container">
+  <h1>Pipes</h1>
+  <hr><br>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Variable</th>
+        <th scope="col">Pipe</th>
+        <th scope="col">Resultado</th>
+        <th scope="col">Explicación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>{{nombre}}</td>
+        <td>uppercase</td>
+        <td>{{nombre | uppercase}}</td>
+        <td>convertir a mayusculas</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>{{nombre}}</td>
+        <td>lowercase</td>
+        <td>{{nombre | lowercase}}</td>
+        <td>convertir a minusculas</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>{{nombre}}</td>
+        <td>slice:3</td>
+        <td>{{nombre | slice:3}}</td>
+        <td>el numero indica a partir de que caracter iniciara la cadena</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>{{nombre}}</td>
+        <td>slice:0:3</td>
+        <td>{{nombre | slice:0:3}}</td>
+        <td>0 indica donde inicia la nuava cadena y 3 donde debe acabar</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>{{arreglo}}</td>
+        <td>slice:1:5</td>
+        <td>{{arreglo | slice:1:5}}</td>
+        <td> de igual forma slice funciona con arreglos</td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>{{PI}}</td>
+        <td>number:'3.0-0'</td>
+        <td>{{PI | number:'3.0-0'}}</td>
+        <td> para dar formato al numero [numeros enteros].[min numeros decimal]-[max numeros decimal]</td>
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>{{PI}}</td>
+        <td>number:'1.0-2'</td>
+        <td>{{PI | number:'1.0-2'}}</td>
+        <td> para dar formato al numero [numeros enteros].[min numeros decimal]-[max numeros decimal]</td>
+      </tr>
+      <tr>
+        <th scope="row">8</th>
+        <td>{{po}}</td>
+        <td>percent</td>
+        <td>{{po | percent}}</td>
+        <td> para dar formato al numero  de porcentaje</td>
+      </tr>
+      <tr>
+        <th scope="row">9</th>
+        <td>{{po}}</td>
+        <td>percent:'2.2-2'</td>
+        <td>{{po | percent:'2.2-2'}}</td>
+        <td> para dar formato al numero  de porcentaje[numeros enteros].[min numeros decimal]-[max numeros decimal]</td>
+      </tr>
+      <tr>
+        <th scope="row">10</th>
+        <td>{{salario}}</td>
+        <td>currency</td>
+        <td>{{salario |currency}}</td>
+        <td> para dar formato al numero  de moneda</td>
+      </tr>
+      <tr>
+        <th scope="row">11</th>
+        <td>{{salario}}</td>
+        <td>currency:'EUR'</td>
+        <td>{{salario |currency:'EUR'}}</td>
+        <td> para dar formato al numero  de moneda</td>
+      </tr>
+      <tr>
+        <th scope="row">12</th>
+        <td>{{salario}}</td>
+        <td>currency:'EUR':true:'4.2-4''</td>
+        <td>{{salario |currency:'EUR':true:'4.2-4'}}</td>
+        <td> para dar formato al numero  de moneda --> number_expression | currency[:currencyCode[:display[:digitInfo[:locale]]]]</td>
+      </tr>
+      <tr>
+        <th scope="row">13</th>
+        <td>{{salario}}</td>
+        <td>number:'.2-2'</td>
+        <td>{{salario |number:'.2-2'}}</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <th scope="row">14</th>
+        <td>{{valorDePromesa}}</td>
+        <td> async </td>
+        <td>{{valorDePromesa | async }}</td>
+        <td> para imprimir promesas </td>
+      </tr>
+      <tr>
+        <th scope="row">15</th>
+        <td>{{fecha}}</td>
+        <td> date </td>
+        <td>{{fecha | date}}</td>
+        <td> darle formato a la fecha </td>
+      </tr>
+      <tr>
+        <th scope="row">16</th>
+        <td>{{fecha}}</td>
+        <td> date:'medium'</td>
+        <td>{{fecha | date:'medium'}}</td>
+        <td> 'medium': equivalent to 'MMM d, y, h:mm:ss a' </td>
+      </tr>
+      <tr>
+        <th scope="row">17</th>
+        <td>{{fecha}}</td>
+        <td> date:'MMMM - dd'</td>
+        <td>{{fecha | date:'MMMM - dd'}}</td>
+        <td> hay que hacer imporaciones en el module.ts para que la fecha este en español </td>
+      </tr>
+      <tr>
+        <th scope="row">18</th>
+        <td>{{nombre2}}</td>
+        <td> capitalizado</td>
+        <td>{{nombre2 | capitalizado}}</td>
+        <td> Creado un pipe de modo personalizado, carpeta pipe archivo  capitalizado.pipes.ts(logica del pipe ¿Que hace?), declararlo en el app.module.ts </td>
+      </tr>
+      <tr>
+        <th scope="row">19</th>
+        <td> {{nombre}} </td>
+        <td> ejercicio
+          <button type="button" name="button" (click)="ejercicio()" class="btn btn-light">Ocultar/Desocultar</button> 
+        </td>
+        <td> {{nombre | ejercicio:activar}} </td>
+        <td>  </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <br>
+  <h3>Slice</h3>
+  <p></p>
+  <ul>
+    <li *ngFor="let item of arreglo | slice:4:9">{{item}}</li>
+  </ul>
+  <br>
+  <h3>JSON</h3>
+  <p> {{heroe}} <~ sin etiqueta</p>
+  <pre>
+    {{heroe|json}}
+  </pre>
+
+  <br><br>
+
+  <h3>Youtube <small>video</small></h3>
+  <p> Creado un pipe personalizado con CLI "ng generate pipe pipes/domseguro", domseguro es el nombre del pipe </p>
+  <iframe width="560" height="315" [src]="video | domseguro:'https://www.youtube.com/embed/'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <br><br>
+
+</div>
+<!--
+<tr>
+  <th scope="row">3</th>
+  <td>{{nombre}}</td>
+  <td>slice:3</td>
+  <td>{{nombre | slice:3}}</td>
+  <td></td>
+</tr>
+-->
